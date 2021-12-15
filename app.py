@@ -5,6 +5,7 @@ from flask_sqlalchemy import SQLAlchemy
 from config import Config
 from database import db_session
 
+
 app = Flask(__name__)
 bootstrap = Bootstrap(app)
 
