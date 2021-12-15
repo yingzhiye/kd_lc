@@ -2,7 +2,6 @@ from flask import Flask, url_for, render_template
 from flask_bootstrap import Bootstrap
 from flask_sqlalchemy import SQLAlchemy
 
-
 from config import Config
 from database import db_session
 
