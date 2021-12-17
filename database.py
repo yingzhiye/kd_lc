@@ -1,7 +1,6 @@
 from sqlalchemy import create_engine, MetaData
 from sqlalchemy.orm import scoped_session, sessionmaker, declarative_base
 
-from config import Config
 
 # engine = create_engine(Config().DATABASE_URI)"postgresql://user:pass@host/dbname"
 engine = create_engine("postgresql://postgres:3@10.91.221.46:5432/KidneyBioDB")

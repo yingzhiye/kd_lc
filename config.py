@@ -1,13 +1,14 @@
-import os
-
-basedir = os.path.abspath(os.path.dirname(__file__))
-
-class Config(object):
+# 配置文件
+class Config:
+    ENV = 'development'
     DEBUG = True
-    DB_SERVER = '10.91.221.46'
-    DB_PORT = '5432'
+    # 数据库类型://用户名：密码@ip:port/数据名称
+    SQLALCHEMY_DATABASE_URI = "postgresql://postgres:3@10.91.221.46:5432/KidneyBioDB"
+
+class DevelopmentConfig(Config):
     ENV = 'development'
 
-    @property
-    def DATABASE_URI(self):
-        return 'postgresql://postgres:3@{}/KidneyBioDB'.format(self.DB_SERVER)
+
+class ProductionConfig(Config):
+    ENV = 'production'
+    DEBUG = False
