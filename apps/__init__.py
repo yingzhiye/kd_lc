@@ -12,5 +12,6 @@ def create_app():
     app.register_blueprint(genomics_bp)  # 将app绑定到蓝图对象上
 
     print(app.url_map)  # 打印app的路由
+    print(app.static_folder)
 
     return app

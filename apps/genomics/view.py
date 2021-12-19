@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template
 
-genomics_bp = Blueprint('genomics', __name__, template_folder='../../templates', static_folder='../../static')
+genomics_bp = Blueprint('genomics', __name__, template_folder='../../templates')
 
 #首页临时放到这里来
 @genomics_bp.route('/')

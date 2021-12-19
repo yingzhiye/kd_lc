@@ -3,3 +3,6 @@ class genomics_tb:
         self.snp = snp
         self.gene = gene
         self.disease = disease
+
+    def __self__(self):
+        return self.snp
