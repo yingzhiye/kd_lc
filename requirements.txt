@@ -3,3 +3,4 @@ flask_bootstrap
 flask_sqlalchemy
 psycopg2
 flask-migrate
+SQLAlchemy~=1.4.28
