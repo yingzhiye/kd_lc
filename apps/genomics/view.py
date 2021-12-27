@@ -1,7 +1,9 @@
 from flask import Blueprint, render_template
+from sqlalchemy.orm import Session
 
-genomics_bp = Blueprint('genomics', __name__, template_folder='D:\\pyproject\kd_lc\\templates',
-                        static_folder='D:\\pyproject\\kd_lc\\static')
+from apps.genomics.models import getGenomicsObj
+
+genomics_bp = Blueprint('genomics', __name__)
 
 
 # 首页临时放到这里来
@@ -15,7 +17,8 @@ def hello_world():  # put application's code here
 @genomics_bp.route('/genomics')
 def genomics_index():
     # 查询简单的表格过来
-    return render_template('genomic_tbl.html')
+
+    return render_template('genomic_tbl.html', )
 
 
 @genomics_bp.route('/serach', methods=['GET', 'PUT'])

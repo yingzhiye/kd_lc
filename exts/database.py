@@ -1,5 +1,4 @@
 from sqlalchemy import create_engine
-from sqlalchemy.ext.automap import automap_base
 from sqlalchemy.orm import Session
 
 '''
@@ -11,33 +10,18 @@ from sqlalchemy.orm import Session
 # eg: psycopg2: engine = create_engine('postgresql+psycopg2://scott:tiger@localhost/mydatabase')
 
 GENOMICS_TBLNAME = 'genomics_gwsall'
-baseMeta = automap_base()
-engine = None
-
-# 存储一些配置
-class DBMetaObj():
-    def __init__(self, engine, session, baseMeta):
-        self.engine = engine
-        self.session = session
-        self.baseMeta = baseMeta
 
 
-
-
-def initDBMeta(uri):
+def initDBMeta(uri, engine, metaBase):
+    pass
     # 创建数据库连接
     engine = create_engine(uri)
 
-    # 使用普通模式反射表对象
-    # metadata = MetaData()
-    # metadata.reflect(band=engine)
-
     # 使用ORM反射表对象
-    baseMeta.prepare(engine, reflect=True)
-    keys = baseMeta.classes.keys()
+    metaBase.prepare(engine, reflect=True)
+    keys = metaBase.classes.keys()
+    session = Session(bind=engine)
     print(keys)
 
-    # genomics的
-    genomics_info = baseMeta.classes.genomics_gwsall
-    session = Session(bind=engine)
+
 
