@@ -1,11 +1,10 @@
 # 反射得到orm
 from sqlalchemy.orm import Session
 
-from apps import metaBase, engine
+from apps.database import metaBase
 
-def getGenomicsObj():
-    genomics_info = metaBase.classes.genomics_gwsall
-    ## select * from table11
-    dataAll = session.query(genomics_info).all()
-    print(dataAll)
-    return genomics_info
+
+# def getGenomicsObj():
+#     genomicInfo = metaBase.classes.genomics_gwsall
+#     print(genomicInfo)
+#     return genomicInfo

@@ -1,4 +1,6 @@
+from flask import g
 from sqlalchemy import create_engine
+from sqlalchemy.ext.automap import automap_base
 from sqlalchemy.orm import Session
 
 '''
@@ -12,16 +14,19 @@ from sqlalchemy.orm import Session
 GENOMICS_TBLNAME = 'genomics_gwsall'
 
 
-def initDBMeta(uri, engine, metaBase):
-    pass
+class DBglobal:
+    db_session = None
+    metaBase = None
+
+
+def initDBMeta(uri):
     # 创建数据库连接
     engine = create_engine(uri)
-
+    DBglobal.metaBase = automap_base()
     # 使用ORM反射表对象
-    metaBase.prepare(engine, reflect=True)
-    keys = metaBase.classes.keys()
-    session = Session(bind=engine)
-    print(keys)
+    DBglobal.metaBase.prepare(engine, reflect=True)
+    DBglobal.db_session = Session(bind=engine)
+
 
 
 

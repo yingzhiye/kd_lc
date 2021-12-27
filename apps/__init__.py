@@ -1,14 +1,8 @@
 # 通过app工厂创建，将配置信息全部填过来，app.py只负责启动
-from flask import Flask
-from sqlalchemy.ext.automap import automap_base
+from flask import Flask, render_template
 from apps.genomics.view import genomics_bp
 from config import DevelopmentConfig
-from exts.database import initDBMeta
-
-engine = None
-metaBase = automap_base()
-session = None
-
+from apps.database import initDBMeta
 
 SQLALCHEMY_DATABASE_URI = "postgresql+psycopg2://postgres:3@10.91.221.46:5432/KidneyBioDB"
 
@@ -17,9 +11,10 @@ def create_app():
     app.config.from_object(DevelopmentConfig)
     # 蓝图是路由的另外一种表示方式
     app.register_blueprint(genomics_bp)  # 将app绑定到蓝图对象上
-    # db.init_app(app)  # 不用这个db了
-    initDBMeta(SQLALCHEMY_DATABASE_URI, engine, metaBase)
+    initDBMeta(SQLALCHEMY_DATABASE_URI)
     # print(baseMeta)
     print(app.url_map)  # 打印app的路由
 
     return app
+
+

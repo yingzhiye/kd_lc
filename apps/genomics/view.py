@@ -1,26 +1,30 @@
 from flask import Blueprint, render_template
-from sqlalchemy.orm import Session
 
-from apps.genomics.models import getGenomicsObj
+from apps.database import DBglobal
 
 genomics_bp = Blueprint('genomics', __name__)
+genomicInfo = None
+db_session = None
 
 
-# 首页临时放到这里来
-@genomics_bp.route('/')
-def hello_world():  # put application's code here
-    title = 'KDBioDB'
-    title2 = 'An integrative multi-omics database on kidney disease!'
-    return render_template('index4.html', title=title, title2=title2)
+@genomics_bp.before_app_first_request
+def setup():
+    global genomicInfo, db_session
+    genomicInfo = DBglobal.metaBase.classes.genomics_gwsall
+    db_session = DBglobal.db_session
+    # print(genomicInfo)
 
-
-@genomics_bp.route('/genomics')
+@genomics_bp.route('/genomic_tbl.html')
 def genomics_index():
     # 查询简单的表格过来
-
-    return render_template('genomic_tbl.html', )
+    labels = db_session.query(genomicInfo).selectable.columns
+    datas = db_session.query(genomicInfo).all()
+    # print(labels)
+    # print(datas)
+    return render_template('genomic_tbl.html', datas=datas)
 
 
 @genomics_bp.route('/serach', methods=['GET', 'PUT'])
 def genomics_search():
     return '补充查询form的html'
+
