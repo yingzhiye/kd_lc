@@ -2,11 +2,12 @@ from flask import Flask, url_for, render_template
 from flask_bootstrap import Bootstrap
 from flask_sqlalchemy import SQLAlchemy
 
-from config import Config
+from config import DevelopmentConfig
 from database import db_session
 
 
 app = Flask(__name__)
+app.conifg.from_object(DevelopmentConfig())
 bootstrap = Bootstrap(app)
 
 @app.route('/')
