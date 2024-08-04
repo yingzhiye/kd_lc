@@ -1,6 +1,6 @@
 from sqlalchemy import Table, Column, Integer, String
 from database import metadata, db_session, Base
-
+from 
 
 # eg
 class User(Base):
@@ -25,3 +25,5 @@ class Genomics(Base):
         self.context = context
         self.url = url
 
+
+    

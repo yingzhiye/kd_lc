@@ -18,3 +18,11 @@ def init_db():
     # 在这里导入定义模型所需要的所有模块，这样它们就会正确的注册在
     # 元数据上。否则你就必须在调用 init_db() 之前导入它们。
     Base.metadata.create_all(bind=engine)
+
+'''逆向生成models.py'''
+def create_models():
+    exec_cmd(
+        'sqlacodegen --outfile {} mysql+pymysql://{}:{}@{}:{}/{}?charset=utf8'.format(
+            output, username, pwd, db_ip, port, db_name))
+
+ 
