@@ -1,14 +1,21 @@
 from flask import Flask, url_for, render_template
 from flask_bootstrap import Bootstrap
 from flask_sqlalchemy import SQLAlchemy
+from waitress import serve
 
-from config import DevelopmentConfig
+from config import DevelopmentConfig,ProductionConfig
 from database import db_session
 
+# 开发模式标识符
+bDevelp = True
 
 app = Flask(__name__)
-app.conifg.from_object(DevelopmentConfig())
-bootstrap = Bootstrap(app)
+
+if bDevelp:
+    app.config.from_object(DevelopmentConfig())
+else:
+    app.config.from_object(ProductionConfig())
+
 
 @app.route('/')
 def hello_world():  # put application's code here
@@ -32,4 +39,7 @@ def genomics_home():
 
 
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0', port=5000)
+    if bDevelp:
+        app.run(debug=True, host='0.0.0.0', port=5000)
+    else:
+        serve(app, host='0.0.0.0', port=5000)
