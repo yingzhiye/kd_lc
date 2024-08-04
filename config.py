@@ -18,5 +18,5 @@ class DevelopmentConfig(Config):
     SECRET_KEY = 'lTacSAjgOmVVAI2YP60g'
 
     @property
-    def DATABASE_URI(self):
+    def SQLALCHEMY_DATABASE_URI(self):
         return 'postgresql://postgres:3@{}/KidneyBioDB'.format(self.DB_SERVER)

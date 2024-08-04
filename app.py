@@ -1,6 +1,6 @@
 from flask import Flask, url_for, render_template
 from flask_bootstrap import Bootstrap
-from flask_sqlalchemy import SQLAlchemy
+from extensions import db
 
 from config import DevelopmentConfig
 from database import db_session
@@ -9,6 +9,7 @@ from database import db_session
 app = Flask(__name__)
 app.conifg.from_object(DevelopmentConfig())
 bootstrap = Bootstrap(app)
+db.init_app(app)
 
 @app.route('/')
 def hello_world():  # put application's code here
@@ -26,9 +27,9 @@ def genomics_home():
     db_session.query_property()
     return render_template('genomic_tbl.html', );
 
-# @app.teardown_appcontext
-# def shutdown_session(exception=None):
-#     db_session.remove()
+@app.teardown_appcontext
+def shutdown_session(exception=None):
+    db_session.remove()
 
 
 if __name__ == '__main__':
