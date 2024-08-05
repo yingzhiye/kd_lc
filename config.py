@@ -16,7 +16,8 @@ class DevelopmentConfig(Config):
     DB_PORT = '5432'
     ENV = 'development'
     SECRET_KEY = 'lTacSAjgOmVVAI2YP60g'
+    
 
     @property
     def SQLALCHEMY_DATABASE_URI(self):
-        return 'postgresql://postgres:3@{}/KidneyBioDB'.format(self.DB_SERVER)
+        return 'postgresql://postgres:3@{}:{}/KidneyBioDB'.format(self.DB_SERVER, self.DB_PORT)
