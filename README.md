@@ -3,4 +3,3 @@
 
 # 操作步骤
 1. flask-sqlacodegen 先生成数据库模型
-2. flask db init

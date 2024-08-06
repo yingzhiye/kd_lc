@@ -26,14 +26,10 @@ Bootstrap(app)
 
 '''视图区域，在这里实现视图编码'''
 @app.route('/')
-def hello_world():  # put application's code here
+def home_page():  # put application's code here
     title = 'KDBioDB'
     title2 = 'An integrative multi-omics database on kidney disease!'
     return render_template('index.html', title = title, title2 = title2)
-
-@app.route('/home/<string:input>')
-def home_page():
-    return f'Input {input}'
 
 @app.route('/genomic_tbl.html')
 def genomics_home():
