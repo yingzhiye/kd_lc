@@ -29,7 +29,7 @@ Bootstrap(app)
 def hello_world():  # put application's code here
     title = 'KDBioDB'
     title2 = 'An integrative multi-omics database on kidney disease!'
-    return render_template('index4.html', title = title, title2 = title2)
+    return render_template('index.html', title = title, title2 = title2)
 
 @app.route('/home/<string:input>')
 def home_page():
@@ -39,7 +39,6 @@ def home_page():
 def genomics_home():
     # 查询简单的表格过来
     aaa = db_session.query(KidneyCancer).all()
-    print(aaa)
     return render_template('genomic_tbl.html')
 
 @app.teardown_appcontext
