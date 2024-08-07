@@ -2,9 +2,8 @@ from flask import Flask, render_template
 from flask_bootstrap import Bootstrap
 from waitress import serve
 from database import db_session
-
 from config import DevelopmentConfig,ProductionConfig
-from models import KidneyCancer
+from models import genomicsGwsall
 
 # 开发模式标识符
 bDevelp = True
@@ -27,15 +26,14 @@ Bootstrap(app)
 '''视图区域，在这里实现视图编码'''
 @app.route('/')
 def home_page():  # put application's code here
-    title = 'KDBioDB'
-    title2 = 'An integrative multi-omics database on kidney disease!'
-    return render_template('index.html', title = title, title2 = title2)
+    title = 'An integrative multi-omics database on kidney disease'
+    return render_template('index.html', title = title)
 
-@app.route('/genomic_tbl.html')
+@app.route('/genomic.html')
 def genomics_home():
-    # 查询简单的表格过来
-    aaa = db_session.query(KidneyCancer).all()
-    return render_template('genomic_tbl.html')
+    # 查询简单的表格过来, 展示的内容在后端进行处理
+    seq = db_session.query(genomicsGwsall).all()
+    return render_template('genomic.html', input = seq)
 
 @app.teardown_appcontext
 def shutdown_session(exception=None):

@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+
+{% block bContentMain %}
+{% for item in input %}
+	<li>{{ item.CONTEXT }}</li>
+{% endfor %}
+{% endblock %}

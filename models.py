@@ -3,7 +3,7 @@ from sqlalchemy import Column, FetchedValue, Integer, Text
 
 from database import Base
 
-class KidneyCancer(Base):
+class genomicsGwsall(Base):
     __tablename__ = 'genomics_gwsall'
 
     DATE_ADDED_TO_CATALOG = Column('DATE ADDED TO CATALOG', Text)
