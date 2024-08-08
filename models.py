@@ -1,9 +1,9 @@
 # coding: utf-8
-from sqlalchemy import Column, FetchedValue, Integer, Text
+from sqlalchemy import Column, FetchedValue, Integer, Text, String, Double
 
 from database import Base
 
-class genomicsGwsall(Base):
+class genomicModel(Base):
     __tablename__ = 'genomics_gwsall'
 
     # DATE_ADDED_TO_CATALOG = Column('DATE ADDED TO CATALOG', Text)
@@ -47,15 +47,27 @@ class genomicsGwsall(Base):
     id = Column(Integer, primary_key=True, server_default=FetchedValue())
 
     
+class GeneTranModel(Base):
+    __tablename__ = 'gene_tran'
+
+    id = Column(Integer, primary_key=True, server_default=FetchedValue())
+    Symbol = Column(String(255))
+    Description = Column(String(255))
+    Category = Column(String(255))
+    Score = Column(Double(53))
+    Molecular = Column(String(255))
+    Variation = Column(String(255))
+    Experimental = Column(String(255))
+    Inferred = Column(String(255))
+    PMIDs = Column(String(255))
 
 
-# class Genomics(Base):
-#     __tablename__ = 'kidney cancer'
 
-#     def __init__(self, snp=None, geneIds=None, region=None, accession=None, context=None, url=None):
-#         self.snp = snp
-#         self.geneIds = geneIds
-#         self.region = region
-#         self.accession = accession
-#         self.context = context
-#         self.url = url
+class RelatedTranModel(Base):
+    __tablename__ = 'related_tran'
+
+    id = Column(Integer, primary_key=True, server_default=FetchedValue())
+    Name = Column(String(255))
+    Score = Column(Double(53))
+    Related_Genes = Column('Related Genes', String(255))
+

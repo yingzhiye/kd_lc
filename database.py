@@ -1,6 +1,6 @@
 from sqlalchemy import create_engine, MetaData
+import sqlalchemy
 from sqlalchemy.orm import scoped_session, sessionmaker, declarative_base
-import os
 
 from config import DevelopmentConfig
 
@@ -14,6 +14,11 @@ db_session = scoped_session(sessionmaker(autocommit=False,
 Base = declarative_base()
 Base.query = db_session.query_property()
 
+
+md = MetaData() # 元数据,用于获取表头等信息
+mdGenomics = sqlalchemy.Table('genomics_gwsall', md, autoload_with=engine)
+mdtransGene = sqlalchemy.Table('gene_tran', md, autoload_with=engine)
+mdtransRelated = sqlalchemy.Table('related_tran', md, autoload_with=engine)
 
 def init_db():
     # 在这里导入定义模型所需要的所有模块，这样它们就会正确的注册在
