@@ -47,6 +47,14 @@ def transcriptome_home():
     tablesRelated = mdtransRelated.c  # tables[].name 是表头名
     return render_template('transcriptome.html', datas = seqGene, datas1 = seqRelated)
 
+@app.route('/protein.html')
+def protein_home():
+    # 查询简单的表格过来, 展示的内容在后端进行处理
+    seq = db_session.query(proteinModel).all()
+    
+    return render_template('protein.html', datas = seq)
+
+
 @app.teardown_appcontext
 def shutdown_session(exception=None):
     db_session.remove()

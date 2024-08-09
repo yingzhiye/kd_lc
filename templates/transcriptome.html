@@ -1,91 +1,132 @@
 {% extends "base.html" %}
 
 {% block bhead %}
-	<!-- Vendors Style-->
-	<meta charset="utf-8" />
-	<link rel="stylesheet" href="../static/eduTmpStatic/css/vendors_css.css">
+<!-- Vendors Style-->
+<meta charset="utf-8" />
+<link rel="stylesheet" href="../static/eduTmpStatic/css/vendors_css.css">
 
-	<!-- Style-->
-	<link rel="stylesheet" href="../static/eduTmpStatic/css/style.css">
-	<link rel="stylesheet" href="../static/eduTmpStatic/css/skin_color.css">
+<!-- Style-->
+<link rel="stylesheet" href="../static/eduTmpStatic/css/style.css">
+<link rel="stylesheet" href="../static/eduTmpStatic/css/skin_color.css">
 {% endblock %}
-	
+
 {% block bContentMain %}
-	
-	<section class="content">
-		<div class="row">
-			<div class="col-12">
-				<div class="box">
-					<!-- /.box-header -->
-					<div class="box-body">
-						<div class="table-responsive">
-							<table id="example5" class="table table-bordered table-striped small" style="width:100%">
-								<thead>
-									<tr>
-										<th>PUBMEDID</th>
-										<th>LINK</th>
-										<th>REGION</th>
-										<th>CHR_ID</th>
-										<th>CHR_POS</th>
-										<th>MAPPED_GENE</th>
-										<th>SNP_GENE_IDS</th>
-										<th>SNPS</th>
-										<th>CONTEXT</th>
-										<th>MAPPED_TRAIT</th>
-									</tr>
-								</thead>
-								<tbody>
-									{% for data in datas %}
-									<tr>
-										<td>{{ data.PUBMEDID }}</td>
-										<td>{{ data.LINK }}</td>
-										<td>{{ data.REGION }}</td>
-										<td>{{ data.CHR_ID }}</td>
-										<td>{{ data.CHR_POS }}</td>
-										<td>{{ data.MAPPED_GENE }}</td>
-										<td>{{ data.SNP_GENE_IDS }}</td>
-										<td>{{ data.SNPS }}</td>
-										<td>{{ data.CONTEXT }}</td>
-										<td>{{ data.MAPPED_TRAIT }}</td>
-									</tr>
-									{% endfor %}
-								</tbody>
-								<tfoot>
-									<tr>
-										<th>PUBMEDID</th>
-										<th>LINK</th>
-										<th>REGION</th>
-										<th>CHR_ID</th>
-										<th>CHR_POS</th>
-										<th>MAPPED_GENE</th>
-										<th>SNP_GENE_IDS</th>
-										<th>SNPS</th>
-										<th>CONTEXT</th>
-										<th>MAPPED_TRAIT</th>
-									</tr>
-								</tfoot>
-							</table>
-						</div>
+
+<section class="content">
+	<div class="row">
+		<div class="col-12">
+			<div class="box">
+				<!-- /.box-header -->
+				<div class="box-body">
+					<div class="p-3 mb-2 bg-primary text-white">GENE表格。这部分提供了与主要疾病相关的附属基因列表。最初显示至少10个附属基因（所有的精英基因总是显示），并可以选择查看完整列表。基因列表的构成是基于以下几方面考虑的：
+						应用了一种优先排序算法来生成基因列表。表格由两个部分组成。基因部分包括符号、描述和类别的列。证据部分则包含基因-疾病关联的各种上下文细节的列，特别是分子（如已知分子基础）、变异（如致病性）、实验（如调控、表达）、推测和PubMed标识符（PMIDs）。GeneCards部分的上下文实际上是搜索命中结果的上下文。表格中的行按关联基因与疾病的不同资源的重要性排序。</div>
+					<div class="table-responsive">
+						<table id="example5" class="table table-bordered table-striped small" style="width:100%">
+							<thead>
+								<tr>
+									<th>id</th>
+									<th>Symbol</th>
+									<th>Description</th>
+									<th>Category</th>
+									<th>Score</th>
+									<th>Molecular</th>
+									<th>Variation</th>
+									<th>Experimental</th>
+									<th>Inferred</th>
+									<th>PMIDs</th>
+								</tr>
+							</thead>
+							<tbody>
+								{% for data in datas %}
+								<tr>
+									<td>{{ data.id }}</td>
+									<td>{{ data.Symbol }}</td>
+									<td>{{ data.Description }}</td>
+									<td>{{ data.Category }}</td>
+									<td>{{ data.Score }}</td>
+									<td>{{ data.Molecular }}</td>
+									<td>{{ data.Variation }}</td>
+									<td>{{ data.Experimental }}</td>
+									<td>{{ data.Inferred }}</td>
+									<td>{{ data.PMIDs }}</td>
+								</tr>
+								{% endfor %}
+							</tbody>
+							<tfoot>
+								<tr>
+									<th>id</th>
+									<th>Symbol</th>
+									<th>Description</th>
+									<th>Category</th>
+									<th>Score</th>
+									<th>Molecular</th>
+									<th>Variation</th>
+									<th>Experimental</th>
+									<th>Inferred</th>
+									<th>PMIDs</th>
+								</tr>
+							</tfoot>
+						</table>
 					</div>
-					<!-- /.box-body -->
 				</div>
-				<!-- /.box -->
+				<!-- /.box-body -->
 			</div>
-			<!-- /.col -->
+			<!-- /.box -->
+
+			<div class="box">
+				<!-- /.box-header -->
+				<div class="box-body">
+					<div class="p-3 mb-2 bg-primary text-white">Related Disorders表格。相关疾病通过两种方式获取：首先，通过GeneAnalytics集合分析，收集计算得出的与目标疾病的附属基因有显著共享描述符的其他疾病。其次，通过MalaCards搜索进行匹配。所有获得的相关疾病按MalaCards综合相关性评分进行排序。</div>
+					<div class="table-responsive">
+						<table id="example1" class="table table-bordered table-striped small" style="width:100%">
+							<thead>
+								<tr>
+									<th>id</th>
+									<th>Name</th>
+									<th>Score</th>
+									<th>Related_Genes</th>
+								</tr>
+							</thead>
+							<tbody>
+								{% for data in datas1 %}
+								<tr>
+									<td>{{ data.id }}</td>
+									<td>{{ data.Name }}</td>
+									<td>{{ data.Score }}</td>
+									<td>{{ data.Related_Genes }}</td>
+								</tr>
+								{% endfor %}
+							</tbody>
+							<tfoot>
+								<tr>
+									<th>id</th>
+									<th>Name</th>
+									<th>Score</th>
+									<th>Related_Genes</th>
+								</tr>
+							</tfoot>
+						</table>
+					</div>
+				</div>
+				<!-- /.box-body -->
+			</div>
+			<!-- /.box -->
 		</div>
-		<!-- /.row -->
-	</section>
+		<!-- /.col -->
+	</div>
+	<!-- /.row -->
+</section>
 {% endblock %}
 
 {% block bscrpt %}
-	<!-- Vendor JS -->
-	<script src="../static/eduTmpStatic/js/vendors.min.js"></script>
-	<script src="../static/eduTmpStatic/js/chat-popup.js"></script>
-    <script src="../static/eduTmpStatic/js/feather.min.js"></script>	
-	<script src="../static/eduTmpStatic/js/datatables.min.js"></script>
-	
-	<!-- EduAdmin App -->
-	<script src="../static/eduTmpStatic/js/template.js"></script>
-	
-	<script src="../static/eduTmpStatic/js/data-table.js"></script>
+<!-- Vendor JS -->
+<script src="../static/eduTmpStatic/js/vendors.min.js"></script>
+<script src="../static/eduTmpStatic/js/chat-popup.js"></script>
+<script src="../static/eduTmpStatic/js/feather.min.js"></script>
+<script src="../static/eduTmpStatic/js/datatables.min.js"></script>
+
+<!-- EduAdmin App -->
+<script src="../static/eduTmpStatic/js/template.js"></script>
+
+<script src="../static/eduTmpStatic/js/data-table.js"></script>
 {% endblock %}

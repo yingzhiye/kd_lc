@@ -18,51 +18,45 @@
 				<div class="box">
 					<!-- /.box-header -->
 					<div class="box-body">
-						<div class="p-3 mb-2 bg-primary text-white">基因组学数据，收录了肾脏病相关的基因组学信息。包括pubmed编号、缩写，以及和此蛋白相互作用的基因信息，以及对应的研究信息。供研究人员查询使用</div>
+						<div class="p-3 mb-2 bg-primary text-white">收录了肾脏病相关的蛋白信息。以肾脏相关疾病为核心，展示关联的蛋白组学数据；包括蛋白的编号、缩写，以及和此蛋白相互作用的基因信息，以及对应的研究信息。供研究人员查询使用</div>
 						<div class="table-responsive">
 							<table id="example5" class="table table-bordered table-striped small" style="width:100%">
 								<thead>
 									<tr>
-										<th>PUBMEDID</th>
-										<th>LINK</th>
-										<th>REGION</th>
-										<th>CHR_ID</th>
-										<th>CHR_POS</th>
-										<th>MAPPED_GENE</th>
-										<th>SNP_GENE_IDS</th>
-										<th>SNPS</th>
-										<th>CONTEXT</th>
-										<th>MAPPED_TRAIT</th>
+										<th>DiseaseEntry_ID</th>
+										<th>Name</th>
+										<th>Keywords</th>
+										<th>Alternative_Names</th>
+										<th>Statistics</th>
+										<th>Description</th>
+										<th>Mnemonic</th>
+										<th>Cross_Reference</th>
 									</tr>
 								</thead>
 								<tbody>
 									{% for data in datas %}
 									<tr>
-										<td>{{ data.PUBMEDID }}</td>
-										<td>{{ data.LINK }}</td>
-										<td>{{ data.REGION }}</td>
-										<td>{{ data.CHR_ID }}</td>
-										<td>{{ data.CHR_POS }}</td>
-										<td>{{ data.MAPPED_GENE }}</td>
-										<td>{{ data.SNP_GENE_IDS }}</td>
-										<td>{{ data.SNPS }}</td>
-										<td>{{ data.CONTEXT }}</td>
-										<td>{{ data.MAPPED_TRAIT }}</td>
+										<td>{{ data.DiseaseEntry_ID }}</td>
+										<td>{{ data.Name }}</td>
+										<td>{{ data.Keywords }}</td>
+										<td>{{ data.Alternative_Names }}</td>
+										<td>{{ data.Statistics }}</td>
+										<td>{{ data.Description }}</td>
+										<td>{{ data.Mnemonic }}</td>
+										<td>{{ data.Cross_Reference }}</td>
 									</tr>
 									{% endfor %}
 								</tbody>
 								<tfoot>
 									<tr>
-										<th>PUBMEDID</th>
-										<th>LINK</th>
-										<th>REGION</th>
-										<th>CHR_ID</th>
-										<th>CHR_POS</th>
-										<th>MAPPED_GENE</th>
-										<th>SNP_GENE_IDS</th>
-										<th>SNPS</th>
-										<th>CONTEXT</th>
-										<th>MAPPED_TRAIT</th>
+										<th>DiseaseEntry_ID</th>
+										<th>Name</th>
+										<th>Keywords</th>
+										<th>Alternative_Names</th>
+										<th>Statistics</th>
+										<th>Description</th>
+										<th>Mnemonic</th>
+										<th>Cross_Reference</th>
 									</tr>
 								</tfoot>
 							</table>

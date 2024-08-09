@@ -26,7 +26,6 @@ def init_db():
     import models 
     # Base.metadata.create_all(bind=engine)
 
-'''逆向生成models.py'''
-# flask-sqlacodegen "postgresql://postgres:3@10.91.221.46:5432/KidneyBioDB" --tables kidney_cancer,kidney_disease --notables --outfile models.py --flask
+
  
  

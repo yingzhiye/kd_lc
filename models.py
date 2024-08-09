@@ -71,3 +71,18 @@ class RelatedTranModel(Base):
     Score = Column(Double(53))
     Related_Genes = Column('Related Genes', String(255))
 
+class proteinModel(Base):
+    __tablename__ = 'show_protein'
+
+    DiseaseEntry_ID = Column('DiseaseEntry ID', String(255), primary_key=True)
+    Name = Column(Text)
+    Keywords = Column(Text)
+    Alternative_Names = Column('Alternative Names', Text)
+    Statistics = Column(Text)
+    Description = Column(Text)
+    Mnemonic = Column(Text)
+    Cross_Reference = Column('Cross Reference', Text)
+
+
+'''逆向生成models.py'''
+# flask-sqlacodegen "postgresql://postgres:3@10.91.221.46:5432/KidneyBioDB" --tables kidney_cancer,kidney_disease --notables --outfile models.py --flask
