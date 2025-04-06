@@ -22,9 +22,8 @@
 						<div class="table-responsive">
 							<table id="example5" class="table table-bordered table-striped small" style="width:100%">
 								<thead>
-									<tr>
+									<tr> 
 										<th>PUBMEDID</th>
-										<th>LINK</th>
 										<th>REGION</th>
 										<th>CHR_ID</th>
 										<th>CHR_POS</th>
@@ -38,10 +37,9 @@
 								<tbody>
 									{% for data in datas %}
 									<tr>
-										<td>{{ data.PUBMEDID }}</td>
-										<td>{{ data.LINK }}</td>
+										<td><a href="https://{{ data.LINK }}">{{ data.PUBMEDID }}</a></td>
 										<td>{{ data.REGION }}</td>
-										<td>{{ data.CHR_ID }}</td>
+										<td><a href="https://www.ncbi.nlm.nih.gov/gene/?term={{ data.CHR_ID }}">{{ data.CHR_ID }}</a></td>
 										<td>{{ data.CHR_POS }}</td>
 										<td>{{ data.MAPPED_GENE }}</td>
 										<td>{{ data.SNP_GENE_IDS }}</td>
@@ -54,7 +52,6 @@
 								<tfoot>
 									<tr>
 										<th>PUBMEDID</th>
-										<th>LINK</th>
 										<th>REGION</th>
 										<th>CHR_ID</th>
 										<th>CHR_POS</th>
@@ -87,6 +84,5 @@
 	
 	<!-- EduAdmin App -->
 	<script src="../static/eduTmpStatic/js/template.js"></script>
-	
 	<script src="../static/eduTmpStatic/js/data-table.js"></script>
 {% endblock %}

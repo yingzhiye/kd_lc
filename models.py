@@ -3,8 +3,8 @@ from sqlalchemy import Column, FetchedValue, Integer, Text, String, Double
 
 from database import Base
 
-class genomicModel(Base):
-    __tablename__ = 'genomics_gwsall'
+class GenomicModel(Base):
+    __tablename__ = 'show_genomics_gwsall'
 
     # DATE_ADDED_TO_CATALOG = Column('DATE ADDED TO CATALOG', Text)
     PUBMEDID = Column(Text)
@@ -48,7 +48,7 @@ class genomicModel(Base):
 
     
 class GeneTranModel(Base):
-    __tablename__ = 'gene_tran'
+    __tablename__ = 'show_gene_tran'
 
     id = Column(Integer, primary_key=True, server_default=FetchedValue())
     Symbol = Column(String(255))
@@ -64,14 +64,14 @@ class GeneTranModel(Base):
 
 
 class RelatedTranModel(Base):
-    __tablename__ = 'related_tran'
+    __tablename__ = 'show_related_tran'
 
     id = Column(Integer, primary_key=True, server_default=FetchedValue())
     Name = Column(String(255))
     Score = Column(Double(53))
     Related_Genes = Column('Related Genes', String(255))
 
-class proteinModel(Base):
+class ProteinModel(Base):
     __tablename__ = 'show_protein'
 
     DiseaseEntry_ID = Column('DiseaseEntry ID', String(255), primary_key=True)

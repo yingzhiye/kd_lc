@@ -16,9 +16,9 @@ Base.query = db_session.query_property()
 
 
 md = MetaData() # 元数据,用于获取表头等信息
-mdGenomics = sqlalchemy.Table('genomics_gwsall', md, autoload_with=engine)
-mdtransGene = sqlalchemy.Table('gene_tran', md, autoload_with=engine)
-mdtransRelated = sqlalchemy.Table('related_tran', md, autoload_with=engine)
+mdGenomics = sqlalchemy.Table('show_genomics_gwsall', md, autoload_with=engine)
+mdtransGene = sqlalchemy.Table('show_gene_tran', md, autoload_with=engine)
+mdtransRelated = sqlalchemy.Table('show_related_tran', md, autoload_with=engine)
 
 def init_db():
     # 在这里导入定义模型所需要的所有模块，这样它们就会正确的注册在
