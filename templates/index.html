@@ -31,25 +31,43 @@
 			</div><!-- /column -->
 			<div class="htmlpage-row">
 				<div class="htmlpage-cell" id="iyng56">
-					<div id="i3jerw" class="c34207">
-						<p>基因组数据库</p>
-						<p>主体为人类肾脏相关变异位点，关联信息包括疾病性状、发表文献、统计学信息、位点注释基因信息等.</p>
+					<div class="card" style="width: 18rem;">
+						<img src="../static/img/genelogo.png" class="card-img-top mx-auto d-block" style="width: 200px; height: 200px;" alt="...">
+						<p class="card-text text-justify mx-3">主体为人类肾脏相关变异位点，关联信息包括疾病性状、发表文献、统计学信息、位点注释基因信息等</p>
+						<ul class="list-group list-group-flush">
+							<li class="list-group-item"><strong>4779   SNPs</strong></li>
+							<li class="list-group-item"><strong>196    Studys</strong></li>
+						</ul>
+						<div class="card-body">
+							<a href={{ url_for('genomics_home') }}><button type="button" class="btn btn-primary">基因组数据库</button></a>
+						</div>
 					</div>
-					<a href={{ url_for('genomics_home') }}><button type="button" class="c35824">基因组</button></a>
 				</div>
 				<div class="htmlpage-cell" id="i6faxe">
-					<div id="itwpwd" class="c34821">
-						<p>转录组数据库</p>
-						<p>主体为基因及表达量，关联基因类型、疾病性状、发表文献等，配套表达量图表.</p>
+					<div class="card" style="width: 18rem;">
+						<img src="../static/img/translogo.png" class="card-img-top mx-auto d-block" style="width: 200px; height: 200px;" alt="...">
+						<p class="card-text text-justify mx-3">主体为基因及表达量，关联基因类型、疾病性状、发表文献等，配套表达量图表.</p>
+						<ul class="list-group list-group-flush">
+							<li class="list-group-item"><strong>4779   SNPs</strong></li>
+							<li class="list-group-item"><strong>196    Studys</strong></li>
+						</ul>
+						<div class="card-body">
+							<a href={{ url_for('transcriptome_home') }}><button type="button" class="btn btn-primary">转录组数据库</button></a>
+						</div>
 					</div>
-					<a href={{ url_for('transcriptome_home') }}><button type="button" class="c35824">转录组</button></a>
 				</div>
 				<div class="htmlpage-cell" id="ihdcth">
-					<div id="ihnbm7" class="c34914">
-						<p>蛋白组数据库</p>
-						<p>肾脏相关蛋白数据，关联组织信息、调控基因、疾病性状、发表文献等，配套蛋白结构图.</p>
+					<div class="card" style="width: 18rem;">
+						<img src="../static/img/potlogo.png" class="card-img-top mx-auto d-block" style="width: 200px; height: 200px;" alt="...">
+						<p class="card-text text-justify mx-3">肾脏相关蛋白数据，关联组织信息、调控基因、疾病性状、发表文献等，配套蛋白结构图.</p>
+						<ul class="list-group list-group-flush">
+							<li class="list-group-item"><strong>4779   SNPs</strong></li>
+							<li class="list-group-item"><strong>196    Studys</strong></li>
+						</ul>
+						<div class="card-body">
+							<a href={{ url_for('protein_home') }}><button type="button" class="btn btn-primary">蛋白组数据库</button></a>
+						</div>
 					</div>
-					<a href={{ url_for('protein_home') }}><button type="button" class="c35824">蛋白组</button></a>
 				</div>
 			</div>
 		</div><!-- /.row -->
