@@ -14,7 +14,13 @@ class ProductionConfig(Config):
     ENV = 'production'
     SECRET_KEY = 'lTacSAjgOmVVAI2YP60g'
     DB_NAME = 'KidneyBioDB'
-    KEY = 'Ying@17876'
+    USER = 'postgres'
+    KEY = 'Ying17876'
+    
+    @property
+    def SQLALCHEMY_DATABASE_URI(self):
+        sqluri = 'postgresql://{}:{}@{}:{}/{}'.format(self.USER, self.KEY, self.DB_SERVER, self.DB_PORT, self.DB_NAME)
+        return sqluri
     
 
 class DevelopmentConfig(Config):
