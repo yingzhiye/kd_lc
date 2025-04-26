@@ -42,8 +42,8 @@
 										<td><a href="https://www.ncbi.nlm.nih.gov/gene/?term={{ data.CHR_ID }}">{{ data.CHR_ID }}</a></td>
 										<td>{{ data.CHR_POS }}</td>
 										<td>{{ data.MAPPED_GENE }}</td>
-										<td>{{ data.SNP_GENE_IDS }}</td>
-										<td>{{ data.SNPS }}</td>
+										<td><a href="https://www.ebi.ac.uk/gxa/genes/{{ data.SNP_GENE_IDS }}">{{ data.SNP_GENE_IDS }}</a></td>      
+										<td><a href="https://www.ebi.ac.uk/gwas/variants/{{ data.SNPS }}">{{ data.SNPS }}</a></td>
 										<td>{{ data.CONTEXT }}</td>
 										<td>{{ data.MAPPED_TRAIT }}</td>
 									</tr>
