@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+
+{% block bContentMain %}
+<section data-image-src="../static/img/home.png" class="wrapper image-wrapper bg-image bg-cover bg-height">
+</section>
+<section class="wrapper bg-light wrapper-border">
+	<div class="container py-14 py-md-16">
+		<div class="row">
+			<div class="col-lg-10 mx-auto">
+				<h1 class="display-4 mb-4">Human Kidney Disease Multi-Omics Database</h1>
+				<div class="row gx-0 mb-12">
+					<div class="col-md-9 text-justify">
+						<p>A high-availability research data retrieval platform for human kidney disease multi-omics, providing comprehensive and standardized data resources to support multi-omics studies of human kidney disorders. The platform retrieves research literature across multiple omics layers in the human kidney field—including genomics, transcriptomics, and proteomics—and performs data curation, statistical processing, and routine analyses for each individual omics type. By integrating and linking curated datasets with kidney disease information, it constructs a standardized and comprehensive relational database for kidney-specific diseases.
+						</p>
+					</div><!--/column -->
+					<div class="col-md-2 ms-auto">
+						<ul class="list-unstyled">
+							<li>
+								<h5 class="mb-1">Cutoff date for data inclusion</h5>
+								<p>31 March 2025</p>
+							</li>
+						</ul>
+					</div><!--/column -->
+				</div><!--/.row -->
+			</div><!--/column -->
+		</div><!--/.row -->
+		<div class="row gy-6 mb-12">
+			<div class="col-md-12">
+				<figure class="hover-scale rounded cursor-dark"><a href="../static/img/pp24@2x.jpg"></a>
+				</figure>
+			</div><!-- /column -->
+			<div class="htmlpage-row">
+				<div class="htmlpage-cell" id="iyng56">
+					<div class="card" style="width: 18rem;">
+						<img src="../static/img/genelogo.png" class="card-img-top mx-auto d-block" style="width: 200px; height: 200px;" alt="...">
+						<p class="card-text text-justify mx-3">Encompasses genetic variation information related to kidney diseases, including multiple types of variants such as SNPs, InDels, along with their frequencies, annotations, and assessments of potential pathogenicity. Integrates literature references, and gene functional classifications.</p>
+						<ul class="list-group list-group-flush">
+							<li class="list-group-item"><strong>4779   SNPs</strong></li>
+							<li class="list-group-item"><strong>12724  Entries</strong></li>
+						</ul>
+						<div class="card-body">
+							<a href={{ url_for('genomics_home') }}><button type="button" class="btn btn-primary">Genomic DB</button></a>
+						</div>
+					</div>
+				</div>
+				<div class="htmlpage-cell" id="i6faxe">
+					<div class="card" style="width: 18rem;">
+						<img src="../static/img/translogo.png" class="card-img-top mx-auto d-block" style="width: 200px; height: 200px;" alt="...">
+						<p class="card-text text-justify mx-3">Human kidney disease–related sample information, gene and transcript expression profiles, differential expression analysis results, gene annotations, functional classifications, and accompanying expression visualizations, along with associated literature references.</p>
+						<ul class="list-group list-group-flush">
+							<li class="list-group-item"><strong>616    GENE</strong></li>
+							<li class="list-group-item"><strong>1575   Studys</strong></li>
+						</ul>
+						<div class="card-body">
+							<a href={{ url_for('transcriptome_home') }}><button type="button" class="btn btn-primary">Transcriptomic DB</button></a>
+						</div>
+					</div>
+				</div>
+				<div class="htmlpage-cell" id="ihdcth">
+					<div class="card" style="width: 18rem;">
+						<img src="../static/img/potlogo.png" class="card-img-top mx-auto d-block" style="width: 200px; height: 200px;" alt="...">
+						<p class="card-text text-justify mx-3">Integrating key research data such as protein expression levels, differential expression analysis results, protein functional annotations, and pathway enrichment information. The database also provides visualization tools and links to relevant research literature.</p>
+						<ul class="list-group list-group-flush">
+							<li class="list-group-item"><strong>140   Protein</strong></li>
+							<li class="list-group-item"><strong>196    Studys</strong></li>
+						</ul>
+						<div class="card-body">
+							<a href={{ url_for('protein_home') }}><button type="button" class="btn btn-primary">Proteomics DB</button></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div><!-- /.row -->
+		<div class="row mb-12">
+			<div class="col-lg-10 mx-auto"></div><!--/column -->
+		</div><!--/.row --><!-- /.row -->
+	</div>
+</section> <!-- /.wrapper -->
+{% endblock %}

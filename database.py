@@ -6,8 +6,8 @@ from config import DevelopmentConfig, ProductionConfig
 
 # TODO: Change to 可配置的数据库连接
 # engine = create_engine("postgresql://postgres:3@10.91.221.46:5432/KidneyBioDB")
-# engine = create_engine(ProductionConfig().SQLALCHEMY_DATABASE_URI)
-engine = create_engine(DevelopmentConfig().SQLALCHEMY_DATABASE_URI)
+engine = create_engine(ProductionConfig().SQLALCHEMY_DATABASE_URI)
+# engine = create_engine(DevelopmentConfig().SQLALCHEMY_DATABASE_URI)
 db_session = scoped_session(sessionmaker(autocommit=False,
                                          autoflush=False,
                                          bind=engine))

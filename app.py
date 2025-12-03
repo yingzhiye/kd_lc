@@ -27,7 +27,7 @@ Bootstrap(app)
 @app.route('/')
 def home_page():  # put application's code here
     # title = 'An integrative multi-omics database on kidney disease'
-    return render_template('index.html')
+    return render_template('indexEn.html')
 
 @app.route('/genomic.html')
 def genomics_home():
